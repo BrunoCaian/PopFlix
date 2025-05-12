@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import popflixBanner from './assets/popflixBanner.jpeg'
 
+
 export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
@@ -22,6 +23,7 @@ export const GlobalStyle = createGlobalStyle`
         background: 
         linear-gradient(180deg, #1f1f2e 0%, #141421 60%) no-repeat,#141421; 
         background-size: cover;
+        font-family: 'Montserrat', sans-serif;
 
 }
     body.login-background {
