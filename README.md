@@ -1,0 +1,2 @@
+# PopFlix
+ PopFlix é uma aplicação web desenvolvida com React e Vite que permite explorar filmes de uma maneira prática e intuitiva. Através da integração com a API do The Movie Database (TMDb), os usuários podem pesquisar filmes, visualizar detalhes sobre eles, assistir trailers e descobrir filmes populares, bem avaliados ou em lançamento. O design é moderno e responsivo, garantindo uma excelente experiência tanto em dispositivos móveis quanto em desktop.
