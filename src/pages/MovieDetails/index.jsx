@@ -18,6 +18,8 @@ export default function MovieDetails({ apiKey, loading, setLoading }) {
     }
 
     useEffect(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+        
         const loadDetails = async () => {
             setLoading(true)
             try {

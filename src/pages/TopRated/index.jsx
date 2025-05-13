@@ -5,7 +5,7 @@ import { LoadMore, MoviesContainer } from "../Home/styles"
 import { FaCrown } from "react-icons/fa";
 
 
-export default function TopRated({ apiKey, loading, setLoading, isSearching, setIsSearching }) {
+export default function TopRated({ apiKey, loading, setLoading, isSearching }) {
     const [topRatedMovies, setTopRatedMovies] = useState([])
     const [page, setPage] = useState(1)
     const [loadingMore, setLoadingMore] = useState(false);
@@ -48,7 +48,7 @@ export default function TopRated({ apiKey, loading, setLoading, isSearching, set
     return (
         <main style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
             {!isSearching && (
-                    <h1 style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', color: '#fff', paddingBlock: '3rem' }}>
+                    <h1 style={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '10px', fontSize: '1.5rem',color: '#fff', paddingBlock: '3rem' }}>
                         <FaCrown style={{ color: 'gold' }} />
                         Melhores Avaliados
                     </h1>

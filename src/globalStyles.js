@@ -20,8 +20,8 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        background: 
-        linear-gradient(180deg, #1f1f2e 0%, #141421 60%) no-repeat,#141421; 
+        background: #1e1e2f;
+
         background-size: cover;
         font-family: 'Montserrat', sans-serif;
 

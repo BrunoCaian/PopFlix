@@ -1,4 +1,5 @@
 import { FadeLoader } from "react-spinners";
+import { RotatingLines } from "react-loader-spinner";
 
 export default function LoadingComponent() {
     return (
@@ -6,21 +7,18 @@ export default function LoadingComponent() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            height: '100vh',
-            width: '100vw',
+            inset: 0,
             position: 'fixed',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            backgroundColor: 'rgba(15, 23, 43, 0.8)', 
+
+            backgroundColor: 'rgba(15, 23, 43, 0.8)',
             zIndex: 9999
         }}>
-            <FadeLoader
-                color="#ffffff"
-                height={30}
-                margin={50}
-                radius={15}
-                width={30}
+            <RotatingLines
+                visible={true}
+                height="150"
+                width="150"
+                strokeColor="#fff"
+                strokeWidth="5"
             />
         </div>
     )

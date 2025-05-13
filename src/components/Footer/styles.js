@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterContainer = styled.footer`
-    background: linear-gradient(135deg, #4B0082, #6a0dad); 
+    background-color: #3a265f;
     padding: 0.8rem;
     margin-top: 2rem;
 

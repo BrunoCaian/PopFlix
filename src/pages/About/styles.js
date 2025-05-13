@@ -11,13 +11,21 @@ export const AboutContainer = styled.main`
 export const Title = styled.h1`
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: #8a2be2;;
+    color: #8a2be2;
+
+    @media (max-width: 480px) {
+        font-size: 1.8rem;
+    }
 `;
 
 export const Subtitle = styled.h2`
     font-size: 1.8rem;
     margin-top: 2rem;
     color: #9370db;
+
+    @media (max-width: 480px) {
+        font-size: 1.3rem;
+    }
 `;
 
 export const Paragraph = styled.p`
