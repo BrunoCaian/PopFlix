@@ -85,7 +85,7 @@ export default function MovieDetails({ apiKey, loading, setLoading }) {
                                 <p>{movie.overview}</p>
                             </Synopsis>
                         ) : (
-                            <span style={{ fontSize: '2rem' }}>Desculpe, esse filme está sem Sinops no momento</span>
+                            <div style={{ display: 'flex', justifyContent:'center', alignItems: 'center',fontSize: '1rem', marginTop: '2rem'}}>Desculpe, esse filme está sem Sinopse no momento</div>
                         )}
                     </MovieInfo>
                 </>
@@ -120,11 +120,13 @@ export default function MovieDetails({ apiKey, loading, setLoading }) {
                                 <span>{genre.name}</span>
                             </Genres>
                         ))}
-                        {movie.overview && (
+                        {movie.overview ? (
                             <Synopsis>
                                 <h2>Sinopse</h2>
                                 <p>{movie.overview}</p>
                             </Synopsis>
+                        ) : (
+                            <div style={{ display: 'flex', justifyContent:'center', alignItems: 'center', fontSize: '2rem', marginTop: '2rem' }}>Desculpe, esse filme está sem Sinopse no momento</div>
                         )}
                     </MovieInfo>
                 </>

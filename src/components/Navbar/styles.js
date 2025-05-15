@@ -59,10 +59,7 @@ export const HamburgerButton = styled.button`
     font-size: 2.5rem;
     cursor: pointer;
 
-    &:active {
-      color: #6a0dad;
-      transform: scale(1.1);
-    }
+
 
   @media (min-width: 701px) {
     display: none;

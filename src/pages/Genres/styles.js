@@ -39,7 +39,6 @@ export const StyledSwiperButton = styled.button`
     background-color: transparent;
     border: none;
     color: #fff;
-    height: 100px;
     width: 50px;
     border-radius: 8px;
     padding: 1rem;
@@ -48,8 +47,16 @@ export const StyledSwiperButton = styled.button`
     z-index: 10;
     cursor: pointer;
 
-    &:hover {
-      color: #4B0082;
+    @media (min-width: 1150px) {
+      &:hover {
+        color: #4B0082;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      &:active {
+        color: #4B0082;
+      }
     }
 
   @media (max-width: 500px) {
