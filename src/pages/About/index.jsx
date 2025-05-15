@@ -41,8 +41,8 @@ export default function About() {
             <Subtitle>GitHub</Subtitle>
             <Paragraph>
                 Você pode ver o código-fonte deste projeto no meu GitHub:{' '}
-                <ExternalLink href="https://github.com/BrunoCaian/movie-app" target="_blank" rel="noopener noreferrer">
-                    github.com/BrunoCaian/movie-app
+                <ExternalLink href="https://github.com/BrunoCaian/PopFlix" target="_blank" rel="noopener noreferrer">
+                    github.com/BrunoCaian/PopFlix
                 </ExternalLink>
             </Paragraph>
         </AboutContainer>
