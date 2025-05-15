@@ -42,7 +42,7 @@ export default function SearchResults() {
 
   return (
     <main style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center' }}>
-      <h1 style={{color: '#fff', paddingBlock: '3rem' }}>Resultados para: "{decodeURIComponent(searchTerm)}"</h1>
+      <h1 style={{textAlign: 'center',color: '#fff', paddingBlock: '3rem' }}>Resultados para: "{decodeURIComponent(searchTerm)}"</h1>
 
       {results.length > 0 ? (
         <MoviesContainer>
