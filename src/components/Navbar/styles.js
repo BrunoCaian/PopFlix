@@ -59,8 +59,6 @@ export const HamburgerButton = styled.button`
     font-size: 2.5rem;
     cursor: pointer;
 
-
-
   @media (min-width: 701px) {
     display: none;
   }

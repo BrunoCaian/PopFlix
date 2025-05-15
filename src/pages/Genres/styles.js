@@ -53,11 +53,6 @@ export const StyledSwiperButton = styled.button`
       }
     }
 
-    @media (max-width: 1100px) {
-      &:active {
-        color: #4B0082;
-      }
-    }
 
   @media (max-width: 500px) {
     width: 20px;

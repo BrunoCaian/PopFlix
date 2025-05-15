@@ -166,7 +166,7 @@ export const Synopsis = styled.div`
     
     @media (max-width: 480px) {
         p {
-            font-size: 1rem;
+            font-size: 1.3rem;
         }
     }
 `
