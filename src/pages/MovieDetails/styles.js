@@ -57,11 +57,12 @@ export const MovieSide = styled.div`
 
 export const Rating = styled.div`
     display: flex;
+    flex-direction: column;
     align-items: center;
     gap: 10px;
 
     span {
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         color: gold;
         font-weight: bold;
     }

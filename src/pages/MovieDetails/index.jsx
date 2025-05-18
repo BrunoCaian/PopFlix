@@ -4,6 +4,7 @@ import { fetchMovieDetails, fetchMovieTrailer } from "../../services/movieServic
 import { Container, Genres, GenresWrapper, MovieInfo, MovieSide, Rating, Synopsis, Trailer } from "./styles"
 import { FaStar } from "react-icons/fa";
 import { useIsMobile } from "../../hooks/useIsMobile";
+import StarRating from "../../components/StarRating";
 
 export default function MovieDetails({ apiKey, loading, setLoading }) {
     const { id } = useParams()
@@ -51,8 +52,8 @@ export default function MovieDetails({ apiKey, loading, setLoading }) {
                         <h2>{movie.title}</h2>
                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                         <Rating>
-                            <FaStar style={{ color: 'yellow', width: '30px', height: '20px' }} />
-                            <span>Avaliação: {(movie.vote_average).toFixed(2)}</span>
+                            <StarRating rating={movie.vote_average}/>
+                            <span>{(movie.vote_average / 2).toFixed(2)}</span>
                         </Rating>
 
                         {movie.release_date && (
@@ -93,10 +94,12 @@ export default function MovieDetails({ apiKey, loading, setLoading }) {
                 <>
                     <MovieSide>
                         <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                        {movie.vote_average && (
                         <Rating>
-                            <FaStar style={{ color: 'yellow', width: '30px', height: '20px' }} />
-                            <span>Avaliação: {(movie.vote_average).toFixed(2)}</span>
+                            <StarRating rating={movie.vote_average}/>
+                            <span>{(movie.vote_average / 2).toFixed(2)}</span>
                         </Rating>
+                        )}
 
                         {movie.release_date && (
                             <p style={{ color: '#ccc' }}>

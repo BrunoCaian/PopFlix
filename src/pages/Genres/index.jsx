@@ -1,14 +1,15 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import { fetchGenres, fetchMoviesByGenre } from "../../services/movieService"
-import { Swiper} from 'swiper/react';
+import { Swiper } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import { GenreContainer, MovieCard, Slide, StyledSwiperButton, SwiperWrapper } from "./styles";
+import { CardOverlay, GenreContainer, MovieCard, Slide, StyledSwiperButton, SwiperWrapper } from "./styles";
 import LoadingComponent from "../../components/LoadingComponent";
+import StarRating from "../../components/StarRating";
 
 
 
@@ -17,6 +18,7 @@ export default function Genres({ apiKey, loading, setLoading }) {
     const [genres, setGenres] = useState([])
     const [moviesByGenre, setMoviesByGenre] = useState({})
     const [pages, setPages] = useState({})
+    const [activeCards, setActiveCards] = useState({});
 
     const navigate = useNavigate()
 
@@ -70,11 +72,18 @@ export default function Genres({ apiKey, loading, setLoading }) {
 
     };
 
-    if(loading) {
+    if (loading) {
         return (
-            <LoadingComponent/>
+            <LoadingComponent />
         )
     }
+
+    const handleCardClick = (genreId, movieId) => {
+        setActiveCards(prev => ({
+            ...prev,
+            [genreId]: prev[genreId] === movieId ? null : movieId
+        }));
+    };
 
     return (
         <>
@@ -90,9 +99,9 @@ export default function Genres({ apiKey, loading, setLoading }) {
                                 modules={[Navigation, Pagination, Autoplay]}
                                 slidesPerView={2}
                                 breakpoints={{
-                                    800: { slidesPerView: 3},
-                                    1200:{ slidesPerView: 4},
-                                    
+                                    800: { slidesPerView: 3 },
+                                    1200: { slidesPerView: 4 },
+
                                 }}
                                 slidesPerGroupAuto={true}
                                 spaceBetween={0}
@@ -105,11 +114,24 @@ export default function Genres({ apiKey, loading, setLoading }) {
                             >
                                 {moviesByGenre[genreId].map((movie) => (
                                     <Slide key={movie.id}>
-                                        <MovieCard>
-                                            <img onClick={() => navigate(`/filme/${movie.id}`)}
+                                        <MovieCard
+                                            isActive={activeCards[genreId] === movie.id}
+                                            onClick={() => handleCardClick(genreId, movie.id)}
+                                        >
+                                            <img
                                                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                                                 alt={movie.title}
                                             />
+                                            <CardOverlay>
+                                                <h3>{movie.title}</h3>
+                                                <StarRating rating={movie.vote_average}/>
+                                                <button onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    navigate(`/filme/${movie.id}`);
+                                                }}>
+                                                    Ver mais
+                                                </button>
+                                            </CardOverlay>
                                         </MovieCard>
                                     </Slide>
                                 ))}

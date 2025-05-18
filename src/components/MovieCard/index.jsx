@@ -1,7 +1,7 @@
 
 import { useNavigate } from "react-router-dom"
 import { Badge, Card, CardButton, Rating } from "./styles"
-import { FaStar } from "react-icons/fa";
+import StarRating from "../StarRating";
 
 export default function MovieCard({ movies = [], showLink = true, $highlighted = false, showReleaseDate = false }) {
 
@@ -42,14 +42,14 @@ export default function MovieCard({ movies = [], showLink = true, $highlighted =
                         <p style={{ color: 'gray', textAlign: 'center' }}>Título não disponível</p>
                     )}
 
-                    <Rating>
-                        <div>
-                            <FaStar style={{ color: 'yellow', width: '30px', height: '20px' }} />
-                            <span>Avaliação: {movie.vote_average ? movie.vote_average.toFixed(2) : 'N/A'}</span>
-                        </div>
-                    </Rating>
+                    {movie.vote_average && (
+                        <Rating>
+                            <StarRating rating={movie.vote_average} />
+                        </Rating>
+                    )}
+
                     {showReleaseDate && (
-                        <p style={{ color: '#ccc' }}>
+                        <p style={{ color: '#ccc', marginTop: '1rem' }} >
                             Lançamento: {formatarData(movie.release_date)}
                         </p>
                     )}

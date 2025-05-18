@@ -63,6 +63,52 @@ export const StyledSwiperButton = styled.button`
 `;
 
 
+export const CardOverlay = styled.div`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    width: 90%;
+    padding: 1rem;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    h3 {
+      font-size: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    span {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    button {
+      background-color: #4B0082;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+
+        &:hover {
+          background: #36005d;
+        }
+    }
+
+    @media (min-width: 1000px) {
+      pointer-events: auto;
+    }
+`;
+
 export const MovieCard = styled.div`
     border-radius: 8px;
     display: flex;
@@ -70,6 +116,7 @@ export const MovieCard = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    position: relative;
 
     img {
       width: 100%;
@@ -77,30 +124,31 @@ export const MovieCard = styled.div`
       cursor: pointer;
       border-radius: 8px;
       object-fit: cover;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-        
-      @media (min-width: 1100px) {
-        &:hover {
-          transform: scale(1.05);
-          opacity: 0.9;
-        }
-      }
-
-      @media (max-width: 1000px) {
-        &:active {
-          transform: scale(1.05);
-          opacity: 0.9;
-        }
-      }
-
 }
 
-    @media (max-width: 500px) {
-      width: 100%;
-
-      img {
-        height: 230px;
-      }
+ 
+  @media (min-width: 1000px) {
+    &:hover ${CardOverlay} {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
+  @media (max-width: 999px) {
+    ${CardOverlay} {
+      ${({ isActive }) => isActive && `
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      `}
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
+
+    img {
+      height: 230px;
+    }
+  }
 `;
