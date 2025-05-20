@@ -16,7 +16,6 @@ const About = lazy(() => import('./pages/About'));
 const SearchResults = lazy(() => import('./pages/SearchResults'));
 const Signup = lazy(() => import('./pages/Signup'));
 const Signin = lazy(() => import('./pages/Signin'));
-
 import { useAuth } from "./contexts/AuthContext";
 import { useMenu } from './contexts/MenuContext';
 import { ToastContainer } from 'react-toastify';
@@ -24,13 +23,18 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const [isSearching, setIsSearching] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [isAuthPage, setIsAuthPage] = useState(false);
 
   const { isOpen } = useMenu();
   const { currentUser: user, loading: authLoading } = useAuth();
   const location = useLocation();
 
   const apiKey = import.meta.env.VITE_API_KEY;
-  const isAuthPage = ["/signin", "/signup"].includes(location.pathname);
+
+  useEffect(() => {
+    const authPaths = ["/signin", "/signup"];
+    setIsAuthPage(authPaths.includes(location.pathname));
+  }, [location.pathname]);
 
 
   useEffect(() => {
