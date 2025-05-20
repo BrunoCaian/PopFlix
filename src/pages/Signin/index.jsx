@@ -83,7 +83,7 @@ export default function Signin() {
   };
 
 
-  const handleGoogleLogin = async () => {
+  const handleLoginWithGoogle = async () => {
     setFormErrors({ email: '', password: '', general: '' });
     setLoading(true);
 
@@ -117,11 +117,11 @@ export default function Signin() {
   };
 
 
-  function handleValidateEmail() {
+  function validateEmailField() {
     setFormErrors(prev => ({ ...prev, email: validateEmail(email) ? '' : 'Informe um email válido.' }));
   }
 
-  function handleValidatePassword() {
+  function validatePasswordField() {
     setFormErrors(prev => ({ ...prev, password: validatePassword(password) ? '' : 'A senha deve ter pelo menos 6 caracteres.' }))
   }
 
@@ -133,7 +133,7 @@ export default function Signin() {
         visibility: formErrors.general ? 'visible' : 'hidden',
         opacity: formErrors.general ? 1 : 0,
         height: '2rem',
-        transition: 'opacity 0.3s ease, visibility 0s linear 0.3s; e'
+        transition: 'opacity 0.3s ease, visibility 0s linear 0.3s'
       }}>
         {formErrors.general || 'placeholder'}
       </LoginMessage>
@@ -145,7 +145,7 @@ export default function Signin() {
             placeholder=" "
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            onBlur={handleValidateEmail}
+            onBlur={validateEmailField}
             $hasError={!!formErrors.email}
           />
           <InputLabel $hasError={!!formErrors.email}>Email</InputLabel>
@@ -158,14 +158,14 @@ export default function Signin() {
             placeholder=" "
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            onBlur={handleValidatePassword}
+            onBlur={validatePasswordField}
             $hasError={!!formErrors.password}
           />
           <InputLabel $hasError={!!formErrors.password}>Senha</InputLabel>
           {formErrors.password && <ErrorText>{formErrors.password}</ErrorText>}
         </LoginInputWrapper>
 
-        <LoginButton type="submit" disabled={loading}>
+        <LoginButton type="submit" disabled={loading || !email || !password}>
           {loading
             ? <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Oval visible={true}
@@ -177,7 +177,7 @@ export default function Signin() {
             </div>
             : 'Entrar'}
         </LoginButton>
-        <LoginButtonGoogle type="button" onClick={handleGoogleLogin} disabled={loading}>
+        <LoginButtonGoogle type="button" onClick={handleLoginWithGoogle} disabled={loading}>
           <img src={googleIcon} alt="ícone do google" style={{ width: '20px' }} />
           Entrar com Google
         </LoginButtonGoogle>

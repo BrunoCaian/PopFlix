@@ -4,7 +4,7 @@ import { LoadMore, MoviesContainer } from "../Home/styles";
 import MovieCard from "../../components/MovieCard";
 import { PiPopcornBold } from "react-icons/pi";
 
-export default function Upcoming({ apiKey, loading, setLoading, isSearching, setIsSearching }) {
+export default function Upcoming({ apiKey, loading, setLoading, isSearching}) {
     const [upcomingMovies, setUpcomingMovies] = useState([])
     const [page, setPage] = useState(1)
     const [loadingMore, setLoadingMore] = useState(false);

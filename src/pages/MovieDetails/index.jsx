@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import { fetchMovieDetails, fetchMovieTrailer } from "../../services/movieService"
 import { Container, Genres, GenresWrapper, MovieInfo, MovieSide, Rating, Synopsis, Trailer } from "./styles"
-import { FaStar } from "react-icons/fa";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import StarRating from "../../components/StarRating";
 

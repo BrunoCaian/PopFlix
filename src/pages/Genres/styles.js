@@ -35,32 +35,26 @@ export const Slide = styled(SwiperSlide)`
 `;
 
 export const StyledSwiperButton = styled.button`
-    transform: translateY(-50%);
-    background-color: transparent;
-    border: none;
-    color: #fff;
-    width: 50px;
-    border-radius: 8px;
-    padding: 1rem;
-    font-weight: 900;
-    position: absolute;
-    z-index: 10;
-    cursor: pointer;
+  && { 
+      transform: translateY(-10%);
+      background-color: transparent;
+      border: none;
+      color: #fff;
+      width: 50px;
+      border-radius: 8px;
+      padding: 1rem;
+      font-weight: 900;
+      position: absolute;
+      z-index: 10;
+      cursor: pointer;
 
-    @media (min-width: 1150px) {
-      &:hover {
-        color: #4B0082;
+      @media (min-width: 1150px) {
+        &:hover {
+          color: #4B0082;
+        }
       }
-    }
-
-
-  @media (max-width: 500px) {
-    width: 20px;
-    margin-left: -5px;
-    margin-right: -5px;
-    transform: translateY(-40%);
   }
-`;
+`
 
 
 export const CardOverlay = styled.div`
@@ -69,12 +63,13 @@ export const CardOverlay = styled.div`
     flex-direction: column;
     gap: 12px;
     position: absolute;
-    bottom: 0;
+    bottom: 1rem;
     background: rgba(0, 0, 0, 0.7);
     width: 90%;
     padding: 1rem;
     color: white;
     text-align: center;
+    border-radius: 0px 0px 8px 8px;
     opacity: 0;
     transform: translateY(100%);
     transition: all 0.3s ease;

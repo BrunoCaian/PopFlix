@@ -2,13 +2,13 @@ import styled from "styled-components";
 
 
 export const LoginContainer = styled.div`
-  
   background-color: rgba(0, 0, 0, 0.75);
   padding: 40px 30px;
   width: 100%;
   max-width: 500px;
   border-radius: 8px;
   margin: 2rem auto;
+  user-select: none;
   color: #fff;
 
   @media (min-width: 768px) and (max-width: 1024px) {
@@ -35,20 +35,6 @@ export const LoginForm = styled.form`
   gap: 1.2rem;
   margin-top: 2.5rem;
 `;
-
-// export const LoginInput = styled.input`
-//   padding: 0.8rem;
-//   border-radius: 8px;
-//   border: none;
-//   font-size: 1rem;
-//   background-color: #1e1a2b; // roxo bem escuro
-// border: 1px solid #3a2c55;
-//   color: white;
-
-//   &::placeholder {
-//     color: #aaa;
-//   }
-// `;
 
 export const LoginInputWrapper = styled.div`
   position: relative;
